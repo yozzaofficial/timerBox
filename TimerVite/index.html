@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="src/style.css">
+  <script src="src/index.ts" type="module" defer></script>
+  <title>Box Timer</title>
+</head>
+<body>
+  <div id="heightWrapper">
+    <header id="mainHeader">
+        <i class="icon-menucircle"></i>
+        <div><p>Round</p> <p class="currentRound">1</p> <p class="totalRound">of 5</p></div>
+    </header>
+    <main>
+        <h2>Workout</h2>
+        <p class="mainTimer">00:00</p>
+        <p class="secondTimer">00:00</p>
+    </main>
+    <section id="buttonsSection">
+        <ul id="menuButtons" class="borderRadius10px">
+          <li id="startButton">
+              <p>Start</p>
+          </li>   
+          <ul id="otherButtons">
+                  <li><p>Start +</p></li>
+                  <li><p>Reset</p></li>
+          </ul>
+                <i class="icon-triangle openMenu"></i>
+        </ul>
+    </section>
+    <section id="startPlusSection" class="hidden">
+        <div>
+          <h2>Start from:</h2>
+          
+        </div>
+    </section>
+    <section id="lateralMenu">
+      <header>
+        <i class="icon-cancel"></i>
+        <p id="totalTime">00:15<span id="the15sMessage" class="hidden">15s for preparing</span>
+        </p>
+        <i class="icon-cog-alt"></i>
+      </header>
+      <h3 id="messageListWorkout">Add some workout</h3>
+      <div id="programsTimer">
+      </div>
+      <button id="addNewTimerButton"><p>Add New Workout</p></button>
+      <div id="setting" class="hidden">
+        <p>Settings</p>
+        <div id="volume">
+          <p class="volumeName">Volume</p>
+          <span></span>
+        </div>
+      </div>
+      <section id="addWorkoutSection" class="hidden" >
+        <header id="addWorkoutHeader">
+          <i id="closeAddWorkout" class="icon-cancel"></i>
+          <p id="tempTotalTime">00:15</p>
+          <p id="addNewWorkoutReset">Reset</p>
+          <p id="addNewTimerSave">Save</p>
+        </header>
+        <div id="work">
+          <p>Work Time</p>
+          <p id="workTimeAddWorkout">00:00</p>
+        </div>
+
+        <div id="rest">
+          <p>Rest Time</p>
+          <p id="restTimeAddWorkout">00:00</p>
+        </div>
+
+        <div id="round">
+          <p>Round</p>
+          <p id="roundAddWorkout">1</p>
+        </div>
+
+        <div id="addOptionSection">
+          <ul id="addOptionButtons" class="borderRadius10px">
+            <li id="addOption">
+                <p>addOption </p>
+                <p>+</p>
+            </li>   
+            <ul id="addOptionButtonsOpen" >
+                    <li><p>Edit Timer</p></li>
+                    <li><p>Add SubTimer</p></li>
+            </ul>
+        </ul>
+        </div>
+        <div id="editTimerSection" class="hidden">
+           
+        </div>
+        <div id="subTimerSection" class="hidden">
+         
+          <section id="subTimerSectionOption" class="hidden">
+              <i id="closeSubTimerSectionOpotionButton" class="icon-cancel"></i>
+              <p id="resetSubTimerSectionOptionButton">Reset</p>
+              <p id="saveSubTimerSectionOptionButton">Save</p>
+              <h2>Round</h2>
+              <div class="rowSubTimer">
+                  <p>Time:</p>
+                  <p id="timeForRoundsubTimerAdding">1:30</p>
+              </div>
+              <div id="editTimerAddingrow" class="">
+              </div>
+            <div id="editTimerButtonContanier">
+              <i id="addSubTimerButton" class="icon-plus"></i>
+            </div>
+            
+          </section>
+        </div>
+        <div id="chooseNumberContainer" class="hidden zindexClass">
+          <div id="doneButton">Done</div>
+          <div id="descRoundTime"><p>Round</p></div>
+        <div id="chooseNumber" >
+            <ul id="minutesWorkout">
+            <li><p>0</p></li>
+            <li><p>1</p></li>
+            <li><p>2</p></li>
+            <li><p>3</p></li>
+            <li><p>4</p></li>
+            <li><p>5</p></li>
+            <li><p>6</p></li>
+            <li><p>7</p></li>
+            <li><p>8</p></li>
+            <li><p>9</p></li>
+            </ul>
+             <div id="descAddTime1">Min</div>
+             <div id="descAddTime2">Sec</div>
+            <ul id="secondsWorkout">
+                <li><p>00</p></li>
+                <li><p>01</p></li>
+                <li><p>02</p></li>
+                <li><p>03</p></li>
+                <li><p>04</p></li>
+                <li><p>05</p></li>
+                <li><p>06</p></li>
+                <li><p>07</p></li>
+                <li><p>08</p></li>
+                <li><p>09</p></li>
+                <li><p>10</p></li>
+                <li><p>11</p></li>
+                <li><p>12</p></li>
+                <li><p>13</p></li>
+                <li><p>14</p></li>
+                <li><p>15</p></li>
+                <li><p>16</p></li>
+                <li><p>17</p></li>
+                <li><p>18</p></li>
+                <li><p>19</p></li>
+                <li><p>20</p></li>
+                <li><p>21</p></li>
+                <li><p>22</p></li>
+                <li><p>23</p></li>
+                <li><p>24</p></li>
+                <li><p>25</p></li>
+                <li><p>26</p></li>
+                <li><p>27</p></li>
+                <li><p>28</p></li>
+                <li><p>29</p></li>
+                <li><p>30</p></li>
+                <li><p>31</p></li>
+                <li><p>32</p></li>
+                <li><p>33</p></li>
+                <li><p>34</p></li>
+                <li><p>35</p></li>
+                <li><p>36</p></li>
+                <li><p>37</p></li>
+                <li><p>38</p></li>
+                <li><p>39</p></li>
+                <li><p>40</p></li>
+                <li><p>41</p></li>
+                <li><p>42</p></li>
+                <li><p>43</p></li>
+                <li><p>44</p></li>
+                <li><p>45</p></li>
+                <li><p>46</p></li>
+                <li><p>47</p></li>
+                <li><p>48</p></li>
+                <li><p>49</p></li>
+                <li><p>50</p></li>
+                <li><p>51</p></li>
+                <li><p>52</p></li>
+                <li><p>53</p></li>
+                <li><p>54</p></li>
+                <li><p>55</p></li>
+                <li><p>56</p></li>
+                <li><p>57</p></li>
+                <li><p>58</p></li>
+                <li><p>59</p></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </section>
+  </div>
+</body>
+</html>

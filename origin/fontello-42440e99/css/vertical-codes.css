@@ -1,0 +1,8 @@
+
+.icon-cancel:before { content: '\61'; } /* 'a' */
+.icon-right-open:before { content: '\62'; } /* 'b' */
+.icon-menucircle:before { content: '\63'; } /* 'c' */
+.icon-modify:before { content: '\64'; } /* 'd' */
+.icon-triangle:before { content: '\65'; } /* 'e' */
+.icon-cog-alt:before { content: '\66'; } /* 'f' */
+.icon-plus:before { content: '\67'; } /* 'g' */

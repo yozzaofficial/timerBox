@@ -1,0 +1,8 @@
+BoxTimer is in Beta. Use it with caution
+
+Language Used:
+HTML
+CSS
+TYPESCRIPT
+RXJS
+VITE(for RXJS)
