@@ -20,6 +20,16 @@ With SubTimer:
 20 sec jab-cross
 
 
+///////How to use BoxTimer///////
+
+Open the side menu
+
+Add a new workout, customizing rounds, work/rest times, and optionally SubTimers
+
+Go back to the main screen
+
+Press the Start button to begin your workout!
+
 
 
 

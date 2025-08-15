@@ -1,4 +1,5 @@
 BoxTimer is in Beta. Use it with caution
+The full version is under active development using React for improved features and user experience.
 
 Language Used:
 HTML
@@ -6,3 +7,4 @@ CSS
 TYPESCRIPT
 RXJS
 VITE(for RXJS)
+
