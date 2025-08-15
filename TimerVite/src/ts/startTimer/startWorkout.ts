@@ -17,6 +17,8 @@ let currentMinute=0;
 let currentSecondSubTimer=0;
 let currentSubTimer=0;
 let pauseIsActive=false;
+let resetPressed=false;
+
 
 let startCoundownSound = new Audio("../../assets/sounds/countdownstart.mp3");
 let subTimerEndSound = new Audio("../../assets/sounds/subtimerend.mp3");
@@ -27,12 +29,12 @@ const startButtonParagr=queryCheck<HTMLParagraphElement>("#startButton p");
 
 export async function startWorkout(workout: addWorkout,i:number) {
     workoutChoosed=workout;
-     mainTimer=queryCheck<HTMLParagraphElement>(".mainTimer"); 
+    mainTimer=queryCheck<HTMLParagraphElement>(".mainTimer"); 
     secondTimer=queryCheck<HTMLParagraphElement>(".secondTimer"); 
     if(pauseIsActive)
         i=parseInt(currentRound.textContent!)-1;
-    await prepareTimer();
-  for (i; i < workoutChoosed.round; i++) {
+   // await prepareTimer();
+  for (i; i < workoutChoosed.round; i++){
     let timer= workoutChoosed.timer[i];
     currentRound.textContent=`${i+1}`;
         checkTime[0]=timer.restMinutes;
@@ -197,4 +199,23 @@ export function pauseWorkout(){
     intervalSub=null;
      intervalMain = null;
     pauseIsActive=true;
+    resetPressed=false
+}
+
+export function resetWorkout(){
+
+ clearInterval(intervalMain!);
+    clearInterval(intervalSub!);
+    clearInterval(intervalPre!);
+    intervalSub=null;
+    intervalSub=null;
+    intervalMain = null;
+    let indexSub = parseInt(currentRound.textContent)-1;
+    currentSecond=workoutChoosed!.timer[0].workSeconds;
+    currentMinute=workoutChoosed!.timer[0].workMinutes;
+    if(workoutChoosed!.subTimer[indexSub].value.length>0){
+        currentSecondSubTimer=workoutChoosed!.subTimer[indexSub].value[0].time;
+        currentSubTimer=0;
+    }
+    pauseIsActive=false;
 }

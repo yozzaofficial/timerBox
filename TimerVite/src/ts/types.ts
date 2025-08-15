@@ -14,7 +14,7 @@ export interface workRestTime{
 }
 export interface subTimer{
     id:number,
-    quantity: number,
+    quantity: number,//useless for now
     value: valueSubTimer[]
 }
 export interface valueSubTimer{

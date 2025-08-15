@@ -7,7 +7,7 @@ import { queryCheck,queryAllCheck} from './ts/querySelectorHelper';
 import { closeWorkoutHandler, saveWorkoutHandler,addSubTimerHandler,resetValueWorkout } from './ts/buttonsHandler';
 import { setWorkoutForModify } from './ts/modifyWorkout';
 import { takeDataFromWorkout } from './ts/startTimer/loadTimer';
-import { startWorkout,pauseWorkout } from './ts/startTimer/startWorkout';
+import { startWorkout,pauseWorkout,resetWorkout } from './ts/startTimer/startWorkout';
 const root = document.documentElement;
 //#region mainPage
 const openMenuButton = queryCheck<HTMLElement>("#menuButtons .openMenu");
@@ -49,6 +49,8 @@ function menuHandler(){
     }
     function closeLateralMenu(){
         root.style.setProperty("--positionLateralMenu",`100%`)
+        workoutChoosed=takeDataFromWorkout();
+
     }
 
     const totalTime = queryCheck<HTMLElement>("#totalTime"); //message prapare time
@@ -91,7 +93,6 @@ function openForm(){
     root.style.setProperty("positionMinutesChoice","0px");
     root.style.setProperty("positionSecondssChoice","0px");
     workout.push({id:idWorkout,name:"",timer:workRestTImeEmpy,round:1,totalTime:""});
-    console.log(workout)
     setValuesZeroAddWorkout();
 };
 //#region slider
@@ -577,7 +578,6 @@ function openNumberSelection()
     titleAddWorkout.textContent="Sub Timer";
     setGlobalBool("subTimerBool",true);
     wichOneClicked=3;
-    console.log(indexSubTImer)
 }
 function createAddingRowSubTimer(newOrnot:number,ifIsNotNew: number){
     
@@ -734,23 +734,26 @@ startButton.addEventListener("click",()=>{
          startButtonParagr.textContent="Start";
          root.style.setProperty("--backgroundTimer","#D4AF37");
     }
-         
     startPlusIsActive=false;
 });
 
 const resetTimerButton = queryCheck<HTMLLIElement>("#otherButtons li:nth-of-type(2)");
+resetTimerButton.addEventListener("click",resetButtonTouched);
 
-resetTimerButton.addEventListener("click",()=>{
+function resetButtonTouched(){
+    resetWorkout();
+    startButtonParagr.textContent="Start";
     workoutChoosed=takeDataFromWorkout();
-  root.style.setProperty("--backgroundTimer","#2dd881")
-  startPlusIsActive=false;
-});
+      root.style.setProperty("--backgroundTimer","#2dd881")
+
+    startPlusIsActive=false;
+    startPlus=0;
+}
 
 const startPlusButton = queryCheck<HTMLLIElement>("#otherButtons li:nth-of-type(1)");
 let sectionStartPlux =  queryCheck<HTMLElement>("#startPlusSection");
 
 startPlusButton.addEventListener("click",()=>{
-    
     sectionStartPlux.classList.remove("hidden");
     createDivsForStartPlus();
 });

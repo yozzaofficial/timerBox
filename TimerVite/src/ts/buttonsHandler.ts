@@ -2,7 +2,6 @@ import type{ addWorkout,workRestTime } from "./types";
 import { queryCheck } from "./querySelectorHelper";
 import { globalBoolVar,pushWorkoutS,setGlobalBool } from "./globalVars";
 import { calcTotalTime } from "./calcTotalTime";
-import { workoutS } from "./globalVars";
 import { addWorkoutInList } from "./saveWorkout";
 import { createTimersForEdit,setValuesZeroAddWorkout } from "../index";
 
@@ -23,8 +22,6 @@ export function saveWorkoutHandler(workout:addWorkout[],idWorkout:number){
                 pushWorkoutS(workout,idWorkout);
                 setGlobalBool("checkingSave",false)
                 addWorkoutInList(idWorkout,globalBoolVar.modifyIsActive);
-                console.log(workoutS)
-                console.log("workout",workout)
             }
         }
         else if(globalBoolVar.editTimerSection){
@@ -39,7 +36,6 @@ export function saveWorkoutHandler(workout:addWorkout[],idWorkout:number){
             subTimerSection.classList.add("hidden");
             setGlobalBool("subTimerSection",false)
         }
-
     setGlobalBool("modifyIsActive",false);
 }
 //#endregion saveButton
@@ -90,7 +86,6 @@ export function addSubTimerHandler(workout:addWorkout[],idWorkout:number){
         }
      if(globalBoolVar.modifyIsActive && workout[idWorkout-1].subTimer!.length==0){//for modify 
             workout[idWorkout-1].subTimer=[];
-        console.log("JAIDAISDHAISHD")
             for(let i =0;i<workout[idWorkout-1].round;i++){
                 workout[idWorkout-1].subTimer!.push({
                 id:i+1,
@@ -151,7 +146,6 @@ export function resetValueWorkout(workout:addWorkout[],idWorkout:number,valueToR
                 restSeconds: valueToReset.restSeconds
             });
        }
-        console.log("ASJD")
     const editTimerSection = queryCheck<HTMLElement>("#editTimerSection");
     createTimersForEdit(editTimerSection);
     calcTotalTime(workout,idWorkout);
